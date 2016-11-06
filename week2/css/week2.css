@@ -1,0 +1,93 @@
+
+* { 
+    box-sizing:border-box;
+    /* Get rid of default margin and padding on all elements. */
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:Palatino, Book Antiqua, serif;
+    font-size:14pt;
+    /* The follwing equalizes the margin between sections and browser
+    window with the margin between sections, since the margin between
+    sections includes a section's left and right margins. */
+    margin-left:10px;
+    margin-right:10px;
+}
+
+h1 {
+    font-size:175%;
+    text-align:center;
+    margin-top:1em;
+    margin-bottom:1em;
+}
+
+/* div.box is the main container for layout. A second div within
+div.box contains the section head and paragraph. */
+
+div.box {
+    width:33.33%;
+    float:left;
+}
+
+div.box div {
+    position:relative;
+    margin:10px;
+    background-color:#DDDD88;
+    padding:3em 1em 0.5em 1em;
+    border:1px solid black;
+}
+
+/* Section heads are positioned at the top right of each section, and
+have a 1px border. The section head needs only left and bottom
+borders, because they share the section's top and right borders. */
+
+h2 {
+    position:absolute;
+    top:0;
+    right:0;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    font-size:125%;
+    font-weight:bold;
+    text-align:center;
+    width:8em;
+    padding-top:0.2em;
+    padding-bottom:0.2em;
+}
+
+/* Section heads must have unique colors. */
+
+#box1 h2 {
+    background-color:#DD0000;
+}
+#box2 h2 {
+    background-color:#00DD00;
+}
+#box3 h2 {
+    background-color:#6666DD;
+}
+
+/* >= 992 px just uses base styles */
+
+/* override styles for 768-991 px */
+
+@media (min-width:768px) and (max-width:991px) {
+    #box1, #box2 {
+        float:left;
+        width:50%;
+    }
+    #box3 {
+        clear:left;
+        width:100%;
+    }
+}
+
+/* override styles for <= 767 px */
+
+@media (max-width:767px) {
+    div.box {
+        width:100%;
+    }
+}
